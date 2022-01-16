@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">GenealogicalTree</string>
+    <string name="my_node">Node</string>
+    <string name="title_activity_add_edit_node">AddEditNode</string>
+    <string name="Surname">Фамилия:</string>
+    <string name="Name">Имя:</string>
+    <string name="Patronymic">Отчество:</string>
+    <string name="DateDeath">Дата смерти:</string>
+    <string name="DateBirthday">Дата рождения:</string>
+    <string name="PlaceBirthday">Место рождения:</string>
+    <string name="PlaceDeath">Место смерти:</string>
+    <string name="btnOK">OK</string>
+</resources>

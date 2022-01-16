@@ -1,0 +1,51 @@
+@startuml
+class com.example.genealogicaltree.MainActivity {
+~ DbHelper db
+~ Cursor cr
+~ int currentSelectedNode
+~ ArrayList<idVsNode> idVsNodes
+~ int cntNodes
+~ BaseTreeAdapter<Viewholder> adapter
+~ TreeView treeView
+# void onCreate(Bundle)
++ void onResume()
+- void readNode()
+- boolean hasSecondPeople()
+- String getIdPeople(boolean)
++ void onCreateContextMenu(ContextMenu,View,ContextMenu.ContextMenuInfo)
++ boolean onContextItemSelected(MenuItem)
+}
+class com.example.genealogicaltree.MainActivity.idVsNode {
++ int id
++ int idMerry
++ int numInNode
++ TreeNode node
+}
+class com.example.genealogicaltree.AddEditNode {
+~ DbHelper db
+~ String id
+~ EditText etSurname
+# void onCreate(Bundle)
++ void onClickBtn(View)
+}
+class com.example.genealogicaltree.Viewholder {
+~ TextView textView
++ void onClick(View)
+}
+class com.example.genealogicaltree.DbHelper {
+- {static} String DB_NAME
+~ Context context
++ void onCreate(SQLiteDatabase)
++ void onUpgrade(SQLiteDatabase,int,int)
++ Cursor query(String)
++ boolean sqlExec(String)
++ String getOneData(String,String,boolean)
+}
+
+
+androidx.appcompat.app.AppCompatActivity <|-- com.example.genealogicaltree.MainActivity
+com.example.genealogicaltree.MainActivity +.. com.example.genealogicaltree.MainActivity.idVsNode
+androidx.appcompat.app.AppCompatActivity <|-- com.example.genealogicaltree.AddEditNode
+com.example.genealogicaltree.OnClickListener <|.. com.example.genealogicaltree.Viewholder
+android.database.sqlite.SQLiteOpenHelper <|-- com.example.genealogicaltree.DbHelper
+@enduml
